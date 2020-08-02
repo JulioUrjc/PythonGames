@@ -71,13 +71,16 @@ def mov():
 
 def perder():
     time.sleep(1)
-    cabeza.goto(0,0)
-    cabeza.direction = "stop"
     #borrar segmentos
     for segmento in cuerpo:
-        segmento.reset()
+        segmento.goto(400,400)
+        del segmento
     #Borrar lista
     cuerpo.clear()
+
+    cabeza.goto(0,0)
+    cabeza.speed(0)
+    cabeza.direction = "stop"
     score = 0
     marcador.clear()
     marcador.write("Score: {}    High Score: {}".format(score, high_score), align = "center", font = ("Courier", 18, "normal"))
